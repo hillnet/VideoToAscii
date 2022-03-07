@@ -10,8 +10,8 @@ from math import floor
 def convert(vc_frame):
     h, w = frame.shape[0:2]
 
-    density_chars = "Ñ@#W$9876543210?!abc;:+=-,._                                         "
-    # density_chars = "_.,-=+:;cba!?0123456789$W#@Ñ   "
+    # density_chars = "Ñ@#W$9876543210?!abc;:+=-,._                                         "
+    density_chars = "_.,-=+:;cba!?0123456789$W#@Ñ                                              "
     density_chars_len = len(density_chars)
 
     row_buffer = []
@@ -53,7 +53,6 @@ if __name__ == "__main__":
         # Generic video capture stuff
         rval, frame = vc.read()
         cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        # cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
         frame = imutils.resize(frame, width=100)
         cv2.imshow("preview", frame)

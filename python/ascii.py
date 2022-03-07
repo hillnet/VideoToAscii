@@ -10,28 +10,26 @@ from math import floor
 def convert(vc_frame):
     h, w = frame.shape[0:2]
 
-    density_chars = "Ñ@#W$9876543210?!abc;:+=-,._                                   "
+    density_chars = "Ñ@#W$9876543210?!abc;:+=-,._                                         "
     # density_chars = "_.,-=+:;cba!?0123456789$W#@Ñ   "
     density_chars_len = len(density_chars)
-    pixel_index_count = 0
 
+    row_buffer = []
     string_buffer = []
-    clear_console()
+
     for column in vc_frame:
         for pixel in column:
             average_colour = sum(pixel) / len(pixel)  # Getting the average value from the RBG values
 
             density_index = floor((average_colour * density_chars_len) / 255)
-            string_buffer.append(density_chars[density_index - 1])
+            row_buffer.append(density_chars[density_index - 1])
 
-            if pixel_index_count == w - 1:
-                print("".join(string_buffer))
-                string_buffer.clear()
-                pixel_index_count = 0
-                continue
+        string_buffer.append("".join(row_buffer) + " ")
+        row_buffer.clear()
 
-            pixel_index_count += 1
-            
+    # clear_console()
+    print(string_buffer)
+
 
 def clear_console():
     command = 'clear'

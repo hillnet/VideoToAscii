@@ -8,10 +8,9 @@ from math import floor
 
 
 def convert(vc_frame):
-    h, w = frame.shape[0:2]
 
-    # density_chars = "Ñ@#W$9876543210?!abc;:+=-,._                                         "
-    density_chars = "_.,-=+:;cba!?0123456789$W#@Ñ                                              "
+    # density_chars = "Ñ@#W$9876543210?!abc;:+=-,._                                         "  # Adjust the amount of whitespace to get a clear image.
+    density_chars = "_.,-=+:;cba!?0123456789$W#@Ñ                            "  # Adjust the amount of whitespace to get a clear image.
     density_chars_len = len(density_chars)
 
     row_buffer = []

@@ -27,7 +27,7 @@ def convert(vc_frame):
         string_buffer.append("".join(row_buffer) + " ")
         row_buffer.clear()
 
-    # clear_console()
+    clear_console()
     print(string_buffer)
 
 
